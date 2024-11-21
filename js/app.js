@@ -1,7 +1,16 @@
 const container = document.getElementById("container");
+const daily = document.getElementById("daily");
+const weekly = document.getElementById("weekly");
+const monthly = document.getElementById("monthly");
 
 const createUrlSafeTitle = ({ title }) => {
   return title.toLowerCase().replace(/\s/g, "-");
+};
+
+const handleClick = (filter) => {
+  console.log(filter);
+  const card = document.getElementById("cardEl");
+  console.log(card);
 };
 
 const bgColorChecker = (element) => {
@@ -28,6 +37,7 @@ const createCard = (element) => {
   const urlSafeTitle = createUrlSafeTitle(element);
   const color = bgColorChecker(element);
   const card = document.createElement("div");
+  card.setAttribute("id", "cardEl");
   const img = document.createElement("img");
   img.setAttribute("src", `/images/icon-${urlSafeTitle}.svg`);
   const innerDiv = document.createElement("div");
