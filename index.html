@@ -25,94 +25,158 @@
   </style>
 </head>
 
-<body class="font-rubik bg-customVeryDarkBlue">
+<body class="font-rubik bg-customVeryDarkBlue flex flex-col items-center justify-center md:h-screen">
   <main>
-    <section class="container p-9">
-      <div class="bg-customDarkBlue max-w-sm mx-auto rounded-2xl flex flex-col items-center w-full justify-center">
-        <div class="bg-customBlue max-w-sm rounded-lg p-6 w-full">
-          <div class="flex flex-row space-x-4">
-            <img src="images/image-jeremy.png" alt="" class="w-1/4 border-4 border-white rounded-full">
-            <div>
+    <section class="container p-9 space-y-6 md:grid md:grid-rows-2 md:grid-cols-4 gap-10 md:w-full">
+      <!-- user -->
+      <div class="bg-customDarkBlue max-w-sm mx-auto rounded-2xl flex flex-col  w-full md:row-span-2">
+        <div class="bg-customBlue max-w-sm rounded-2xl p-6 w-full md:h-full">
+          <div class="flex flex-row space-x-4 md:flex-col md:gap-14">
+            <img src="images/image-jeremy.png" alt="" class="w-1/4 border-4 border-white rounded-full md:w-1/2">
+            <div class="self-center">
               <h2 class="text-customPaleBlue">Report for</h2>
-              <h1 class="text-white">Jeremy Robson</h1>
+              <h1 class="text-white md:text-4xl">Jeremy Robson</h1>
             </div>
           </div>
         </div>
         <div>
-          <div class="flex flex-row space-x-4 p-6">
-            <span class="text-customDesaturatedBlue">Daily</span>
-            <span class="text-white">Weekly</span>
-            <span class="text-customDesaturatedBlue">Monthly</span>
-            </d>
+          <div class="flex flex-row p-6 md:flex-col justify-evenly text-left gap-4 md:justify-start">
+            <p class="text-customDesaturatedBlue hover:text-white hover:cursor-pointer">Daily</p>
+            <p class="text-white hover:text-white hover:cursor-pointer">Weekly</p>
+            <p class="text-customDesaturatedBlue hover:text-white hover:cursor-pointer">Monthly</p>
           </div>
         </div>
       </div>
 
-      <!-- card  -->
+      <!-- cards  -->
 
-      <div class="bg-customLightOrange max-w-sm mx-auto rounded-2xl">
-        <img src="/images/icon-work.svg" alt="" class="top-0">
-        <div class="bg-customDarkBlue max-w-sm mx-auto rounded-2xl p-10">
-          <div class="p-6">
-            Work
-            5hrs <!-- daily -->
-            Previous - 7hrs <!-- daily -->
-            32hrs <!-- weekly -->
-            Previous - 36hrs <!-- weekly -->
-            103hrs <!-- monthly -->
-            Previous - 128hrs <!-- monthly -->
+      <div class="bg-customLightOrange max-w-sm mx-auto rounded-2xl relative pt-11 overflow-hidden w-full">
+        <img src="/images/icon-work.svg" alt="" class="top-[-7px] absolute z-10 right-4">
+        <div
+          class="bg-customDarkBlue max-w-md mx-auto rounded-xl p-9 relative z-20 shadow-2xl hover:bg-hoverBlue hover:cursor-pointer">
+          <div class="text-white flex flex-col">
+            <div id="title" class="flex justify-between">
+              <h3 class="text-white text-lg">Work</h3>
+              <p class="text-customPaleBlue hover:text-white">•••</p>
+            </div>
+            <div class="flex flex-row justify-between md:flex-col">
+              <!-- 5hrs daily -->
+              <!-- Previous - 7hrs daily -->
+              <p class="text-[2rem] md:text-[3.5rem] font-light">32hrs</p> <!-- weekly -->
+              <span class="text-customPaleBlue my-auto">Previous - 36hrs</span> <!-- weekly -->
+              <!-- 103hrs monthly -->
+              <!-- Previous - 128hrs monthly -->
+            </div>
           </div>
         </div>
       </div>
 
+      <div class="bg-customSoftBlue max-w-sm mx-auto rounded-2xl relative pt-11 overflow-hidden w-full">
+        <img src="/images/icon-play.svg" alt="" class="top-[-7px] absolute z-10 right-4">
+        <div
+          class="bg-customDarkBlue max-w-md mx-auto rounded-xl p-9 relative z-20 shadow-2xl hover:bg-hoverBlue hover:cursor-pointer">
+          <div class="text-white flex flex-col">
+            <div id="title" class="flex justify-between">
+              <h3 class="text-white text-lg">Play</h3>
+              <p class="text-customPaleBlue hover:text-white">•••</p>
+            </div>
+            <div class="flex flex-row justify-between md:flex-col">
+              <!-- 5hrs daily -->
+              <!-- Previous - 7hrs daily -->
+              <p class="text-[2rem] md:text-[3.5rem] font-light">10hrs</p> <!-- weekly -->
+              <span class="text-customPaleBlue my-auto">Previous - 29hrs</span> <!-- weekly -->
+              <!-- 103hrs monthly -->
+              <!-- Previous - 128hrs monthly -->
+            </div>
+          </div>
+        </div>
+      </div>
 
+      <div class="bg-customLightRed max-w-sm mx-auto rounded-2xl relative pt-11 overflow-hidden w-full">
+        <img src="/images/icon-study.svg" alt="" class="top-[-7px] absolute z-10 right-4">
+        <div
+          class="bg-customDarkBlue max-w-md mx-auto rounded-xl p-9 relative z-20 shadow-2xl hover:bg-hoverBlue hover:cursor-pointer">
+          <div class="text-white flex flex-col">
+            <div id="title" class="flex justify-between">
+              <h3 class="text-white text-lg">Study</h3>
+              <p class="text-customPaleBlue hover:text-white">•••</p>
+            </div>
+            <div class="flex flex-row justify-between md:flex-col">
+              <!-- 5hrs daily -->
+              <!-- Previous - 7hrs daily -->
+              <p class="text-[2rem] md:text-[3.5rem] font-light">10hrs</p> <!-- weekly -->
+              <span class="text-customPaleBlue my-auto">Previous - 29hrs</span> <!-- weekly -->
+              <!-- 103hrs monthly -->
+              <!-- Previous - 128hrs monthly -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-customLimeGreen max-w-sm mx-auto rounded-2xl relative pt-11 overflow-hidden w-full">
+        <img src="/images/icon-exercise.svg" alt="" class="top-[-7px] absolute z-10 right-4">
+        <div
+          class="bg-customDarkBlue max-w-md mx-auto rounded-xl p-9 relative z-20 shadow-2xl hover:bg-hoverBlue hover:cursor-pointer">
+          <div class="text-white flex flex-col">
+            <div id="title" class="flex justify-between">
+              <h3 class="text-white text-lg">Exercise</h3>
+              <p class="text-customPaleBlue hover:text-white">•••</p>
+            </div>
+            <div class="flex flex-row justify-between md:flex-col">
+              <!-- 5hrs daily -->
+              <!-- Previous - 7hrs daily -->
+              <p class="text-[2rem] md:text-[3.5rem] font-light">10hrs</p> <!-- weekly -->
+              <span class="text-customPaleBlue my-auto">Previous - 29hrs</span> <!-- weekly -->
+              <!-- 103hrs monthly -->
+              <!-- Previous - 128hrs monthly -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-customViolet max-w-sm mx-auto rounded-2xl relative pt-11 overflow-hidden w-full">
+        <img src="/images/icon-social.svg" alt="" class="top-[-7px] absolute z-10 right-4">
+        <div
+          class="bg-customDarkBlue max-w-md mx-auto rounded-xl p-9 relative z-20 shadow-2xl hover:bg-hoverBlue hover:cursor-pointer">
+          <div class="text-white flex flex-col">
+            <div id="title" class="flex justify-between">
+              <h3 class="text-white text-lg">Social</h3>
+              <p class="text-customPaleBlue hover:text-white">•••</p>
+            </div>
+            <div class="flex flex-row justify-between md:flex-col">
+              <!-- 5hrs daily -->
+              <!-- Previous - 7hrs daily -->
+              <p class="text-[2rem] md:text-[3.5rem] font-light">10hrs</p> <!-- weekly -->
+              <span class="text-customPaleBlue my-auto">Previous - 29hrs</span> <!-- weekly -->
+              <!-- 103hrs monthly -->
+              <!-- Previous - 128hrs monthly -->
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="bg-customSoftOrange max-w-sm mx-auto rounded-2xl relative pt-11 overflow-hidden w-full">
+        <img src="/images/icon-self-care.svg" alt="" class="top-[-7px] absolute z-10 right-4">
+        <div
+          class="bg-customDarkBlue max-w-md mx-auto rounded-xl p-9 relative z-20 shadow-2xl hover:bg-hoverBlue hover:cursor-pointer">
+          <div class="text-white flex flex-col">
+            <div id="title" class="flex justify-between">
+              <h3 class="text-white text-lg">Self Care</h3>
+              <p class="text-customPaleBlue hover:text-white">•••</p>
+            </div>
+            <div class="flex flex-row justify-between md:flex-col">
+              <!-- 5hrs daily -->
+              <!-- Previous - 7hrs daily -->
+              <p class="text-[2rem] md:text-[3.5rem] font-light">10hrs</p> <!-- weekly -->
+              <span class="self-center text-customPaleBlue my-auto">Previous - 29hrs</span> <!-- weekly -->
+              <!-- 103hrs monthly -->
+              <!-- Previous - 128hrs monthly -->
+            </div>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
-
-
-
-
-
-
-  Play
-  1hr <!-- daily -->
-  Previous - 2hrs <!-- daily -->
-  10hrs <!-- weekly -->
-  Previous - 8hrs <!-- weekly -->
-  23hrs <!-- monthly -->
-  Previous - 29hrs <!-- monthly -->
-
-  Study
-  0hrs <!-- daily -->
-  Previous - 1hr <!-- daily -->
-  4hrs <!-- weekly -->
-  Previous - 7hrs <!-- weekly -->
-  13hrs <!-- monthly -->
-  Previous - 19hrs <!-- monthly -->
-
-  Exercise
-  1hr <!-- daily -->
-  Previous - 1hr <!-- daily -->
-  4hrs <!-- weekly -->
-  Previous - 5hrs <!-- weekly -->
-  11hrs <!-- monthly -->
-  Previous - 18hrs <!-- monthly -->
-
-  Social
-  1hr <!-- daily -->
-  Previous - 3hrs <!-- daily -->
-  5hrs <!-- weekly -->
-  Previous - 10hrs <!-- weekly -->
-  21hrs <!-- monthly -->
-  Previous - 23hrs <!-- monthly -->
-
-  Self Care
-  0hrs <!-- daily -->
-  Previous - 1hr <!-- daily -->
-  2hrs <!-- weekly -->
-  Previous - 2hrs <!-- weekly -->
-  7hrs <!-- monthly -->
-  Previous - 11hrs <!-- monthly -->
 
 
   <div class="attribution">

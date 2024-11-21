@@ -22,6 +22,7 @@ module.exports = {
         customDarkBlue: "hsl(235, 46%, 20%)",
         customDesaturatedBlue: "hsl(235, 45%, 61%)",
         customPaleBlue: "hsl(236, 100%, 87%)",
+        hoverBlue: "hsl(235, 41%, 34%)",
       },
     },
   },
