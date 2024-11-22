@@ -34,7 +34,7 @@ const createCard = (element, timeframe) => {
   const card = document.createElement("div");
   card.setAttribute("id", "cardEl");
   const img = document.createElement("img");
-  img.setAttribute("src", `/images/icon-${urlSafeTitle}.svg`);
+  img.setAttribute("src", `./images/icon-${urlSafeTitle}.svg`);
   const innerDiv = document.createElement("div");
   const textContent = document.createElement("div");
   textContent.classList.add("text-white", "flex", "flex-col");
