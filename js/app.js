@@ -35,6 +35,7 @@ const createCard = (element, timeframe) => {
   card.setAttribute("id", "cardEl");
   const img = document.createElement("img");
   img.setAttribute("src", `./images/icon-${urlSafeTitle}.svg`);
+  img.setAttribute("alt", `${urlSafeTitle} image`);
   const innerDiv = document.createElement("div");
   const textContent = document.createElement("div");
   textContent.classList.add("text-white", "flex", "flex-col");
@@ -87,8 +88,6 @@ const createCard = (element, timeframe) => {
     "overflow-hidden",
     "w-full",
   );
-
-  card.setAttribute("id", "card");
 
   container.appendChild(card);
   card.appendChild(img);
