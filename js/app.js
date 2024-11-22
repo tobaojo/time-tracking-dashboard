@@ -47,12 +47,18 @@ const createCard = (element, timeframe) => {
   elipsis.classList.add("text-customPaleBlue", "hover:text-white");
   elipsis.textContent = "•••";
   const stats = document.createElement("div");
-  stats.classList.add("flex", "flex-row", "justify-between", "md:flex-col");
+  stats.classList.add(
+    "flex",
+    "flex-row",
+    "justify-between",
+    "md:flex-col",
+    "gap-2",
+  );
   const hours = document.createElement("p");
   hours.classList.add("text-[2rem]", "md:text-[3.5rem]", "font-light");
   hours.textContent = `${currentHours}hrs`;
   const prevHours = document.createElement("span");
-  prevHours.classList.add("text-customPaleBlue", "my-auto");
+  prevHours.classList.add("text-customPaleBlue", "my-auto", "gap-2");
   prevHours.setAttribute("id", "test");
   prevHours.textContent = `Last Week - ${previousHours}hrs`;
   img.classList.add("top-[-7px]", "absolute", "z-10", "right-4");
@@ -71,6 +77,7 @@ const createCard = (element, timeframe) => {
   );
 
   card.classList.add(
+    "card",
     `${color}`,
     "max-w-sm",
     "mx-auto",
@@ -110,12 +117,22 @@ fetch("/data.json")
       createCard(element, "weekly");
       return processedElement;
     });
+  })
+  .catch((error) => {
+    console.error("Error fetching data:", error);
   });
 
-const clearContainer = () => {};
+const clearContainer = () => {
+  const cards = document.querySelectorAll(".card");
+  cards.forEach((element) => {
+    element.remove();
+  });
+};
 
 const handleClick = (timeframe) => {
   clearContainer();
+
+  updateTimeframeButtonStyles(timeframe);
   const newArr = elementObjArray.map((element) => {
     const filteredElement = {
       title: element.title,
@@ -124,8 +141,19 @@ const handleClick = (timeframe) => {
     createCard(filteredElement, timeframe);
     return filteredElement;
   });
-  console.log(newArr);
-  console.log(elementObjArray);
+  return newArr;
+};
+
+const updateTimeframeButtonStyles = (selectedTimeframe) => {
+  const buttons = ["daily", "weekly", "monthly"];
+  buttons.forEach((timeframe) => {
+    const button = document.getElementById(timeframe);
+    if (timeframe === selectedTimeframe) {
+      button.classList.add("text-white");
+    } else {
+      button.classList.remove("text-white");
+    }
+  });
 };
 
 const timeframeChecker = (element) => {
