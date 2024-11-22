@@ -7,12 +7,6 @@ const createUrlSafeTitle = ({ title }) => {
   return title.toLowerCase().replace(/\s/g, "-");
 };
 
-const handleClick = (filter) => {
-  console.log(filter);
-  const card = document.getElementById("cardEl");
-  console.log(card);
-};
-
 const bgColorChecker = (element) => {
   switch (element.title) {
     case "Work":
@@ -32,8 +26,9 @@ const bgColorChecker = (element) => {
   }
 };
 
-const createCard = (element) => {
-  console.log(element);
+const createCard = (element, timeframe) => {
+  const currentHours = element.timeframes?.[timeframe]?.current || 0;
+  const previousHours = element.timeframes?.[timeframe]?.previous || 0;
   const urlSafeTitle = createUrlSafeTitle(element);
   const color = bgColorChecker(element);
   const card = document.createElement("div");
@@ -55,10 +50,11 @@ const createCard = (element) => {
   stats.classList.add("flex", "flex-row", "justify-between", "md:flex-col");
   const hours = document.createElement("p");
   hours.classList.add("text-[2rem]", "md:text-[3.5rem]", "font-light");
-  hours.textContent = `${element.timeframes?.weekly?.current}hrs`;
+  hours.textContent = `${currentHours}hrs`;
   const prevHours = document.createElement("span");
   prevHours.classList.add("text-customPaleBlue", "my-auto");
-  prevHours.textContent = `Last Week - ${element.timeframes?.weekly?.previous}hrs`;
+  prevHours.setAttribute("id", "test");
+  prevHours.textContent = `Last Week - ${previousHours}hrs`;
   img.classList.add("top-[-7px]", "absolute", "z-10", "right-4");
 
   innerDiv.classList.add(
@@ -85,6 +81,8 @@ const createCard = (element) => {
     "w-full",
   );
 
+  card.setAttribute("id", "card");
+
   container.appendChild(card);
   card.appendChild(img);
   card.appendChild(innerDiv);
@@ -97,6 +95,8 @@ const createCard = (element) => {
   stats.appendChild(prevHours);
 };
 
+let elementObjArray = [];
+
 fetch("/data.json")
   .then((response) => {
     if (!response.ok) {
@@ -105,8 +105,29 @@ fetch("/data.json")
     return response.json();
   })
   .then((data) => {
-    data.forEach((element) => {
-      createCard(element);
+    elementObjArray = data.map((element) => {
+      const processedElement = timeframeChecker(element);
+      createCard(element, "weekly");
+      return processedElement;
     });
-    return data;
   });
+
+const clearContainer = () => {};
+
+const handleClick = (timeframe) => {
+  clearContainer();
+  const newArr = elementObjArray.map((element) => {
+    const filteredElement = {
+      title: element.title,
+      timeframes: { [timeframe]: element.timeframes[timeframe] },
+    };
+    createCard(filteredElement, timeframe);
+    return filteredElement;
+  });
+  console.log(newArr);
+  console.log(elementObjArray);
+};
+
+const timeframeChecker = (element) => {
+  return element;
+};
