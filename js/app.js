@@ -104,7 +104,7 @@ const createCard = (element, timeframe) => {
 
 let elementObjArray = [];
 
-fetch("/data.json")
+fetch("./data.json")
   .then((response) => {
     if (!response.ok) {
       console.log("something went wrong");
