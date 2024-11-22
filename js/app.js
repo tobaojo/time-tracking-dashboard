@@ -32,7 +32,6 @@ const createCard = (element, timeframe) => {
   const urlSafeTitle = createUrlSafeTitle(element);
   const color = bgColorChecker(element);
   const card = document.createElement("div");
-  card.setAttribute("id", "cardEl");
   const img = document.createElement("img");
   img.setAttribute("src", `./images/icon-${urlSafeTitle}.svg`);
   img.setAttribute("alt", `${urlSafeTitle} image`);
@@ -41,7 +40,7 @@ const createCard = (element, timeframe) => {
   textContent.classList.add("text-white", "flex", "flex-col");
   const title = document.createElement("div");
   title.classList.add("flex", "justify-between");
-  const h3 = document.createElement("h3");
+  const h3 = document.createElement("h2");
   h3.classList.add("text-white", "text-lg");
   h3.textContent = `${element.title}`;
   const elipsis = document.createElement("p");
@@ -60,7 +59,6 @@ const createCard = (element, timeframe) => {
   hours.textContent = `${currentHours}hrs`;
   const prevHours = document.createElement("span");
   prevHours.classList.add("text-customPaleBlue", "my-auto", "gap-2");
-  prevHours.setAttribute("id", "test");
   prevHours.textContent = `Last Week - ${previousHours}hrs`;
   img.classList.add("top-[-7px]", "absolute", "z-10", "right-4");
 
